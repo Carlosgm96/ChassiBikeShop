@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="RelCompocicaoProduto" pageWidth="555" pageHeight="802" columnWidth="555" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" uuid="b4da854b-9f93-4251-86c6-4e3e09f717b8">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="produtoid" class="java.lang.Long"/>
+	<queryString>
+		<![CDATA[SELECT
+     composicaoproduto."id" AS composicaoproduto_id,
+     composicaoproduto."estoque" AS estoque,
+     composicaoproduto."preco" AS preco,
+     composicaoproduto."cor_id" AS composicaoproduto_cor_id,
+     composicaoproduto."produto_id" AS produto_id,
+     composicaoproduto."tamanho_id" AS composicaoproduto_tamanho_id,
+     cor."id" AS cor_id,
+     cor."nome" AS cor_nome,
+     tamanho."id" AS tamanho_id,
+     tamanho."nome" AS tamanho_nome
+     FROM
+     "public"."cor" cor INNER JOIN "public"."composicaoproduto" composicaoproduto ON cor."id" = composicaoproduto."cor_id"
+     INNER JOIN "public"."tamanho" tamanho ON composicaoproduto."tamanho_id" = tamanho."id"
+where
+	composicaoproduto."produto_id" = $P{produtoid}]]>
+	</queryString>
+	<field name="composicaoproduto_id" class="java.lang.Long"/>
+	<field name="estoque" class="java.lang.Double"/>
+	<field name="preco" class="java.lang.Double"/>
+	<field name="composicaoproduto_cor_id" class="java.lang.Long"/>
+	<field name="produto_id" class="java.lang.Long"/>
+	<field name="composicaoproduto_tamanho_id" class="java.lang.Long"/>
+	<field name="cor_id" class="java.lang.Long"/>
+	<field name="cor_nome" class="java.lang.String"/>
+	<field name="tamanho_id" class="java.lang.Long"/>
+	<field name="tamanho_nome" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band splitType="Stretch"/>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band splitType="Stretch"/>
+	</columnHeader>
+	<detail>
+		<band height="23" splitType="Stretch">
+			<textField>
+				<reportElement x="15" y="0" width="240" height="20" uuid="58453333-af8c-42d6-b17d-d8dda2e62aef"/>
+				<textFieldExpression><![CDATA[$F{cor_nome}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="255" y="0" width="100" height="20" uuid="7ff2a14b-270a-44ce-af4d-e6834bb87f27"/>
+				<textFieldExpression><![CDATA[$F{tamanho_nome}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="355" y="0" width="100" height="20" uuid="6981cefe-ae1c-47de-9e3f-18057632feeb"/>
+				<textFieldExpression><![CDATA[$F{estoque}]]></textFieldExpression>
+			</textField>
+			<textField pattern="¤ #,##0.00">
+				<reportElement x="455" y="0" width="100" height="20" uuid="a1b496a3-0658-4857-92ca-39f6bf315327"/>
+				<textFieldExpression><![CDATA[$F{preco}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>

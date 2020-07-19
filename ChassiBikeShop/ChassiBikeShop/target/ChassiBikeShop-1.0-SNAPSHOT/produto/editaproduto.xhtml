@@ -1,0 +1,95 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"          
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <ui:composition template="/index.xhtml">
+        <ui:define name="body">
+            <h3 align="center">Cadastro de Produto</h3>
+            <h:form>
+                <p:growl autoUpdate="true"/>
+                <p:panelGrid columns="2" id="TESTE">
+
+
+                    Nome:<p:inputText value="#{produtoControle.produto.nome}" required="true" requiredMessage="O nome é obrigatório!"/>
+
+                    Grupo de Produto:<p:autoComplete value="#{produtoControle.produto.grupoProduto}"
+                                                     completeMethod="#{produtoControle.listaFiltrandoGrupoProduto}"
+                                                     var="gr"
+                                                     converter="#{produtoControle.grupoProdutoConverter}"
+                                                     itemLabel="#{gr.nome}"
+                                                     itemValue="#{gr}"
+                                                     forceSelection="true"
+                                                     />
+
+
+                </p:panelGrid> 
+                <p:panelGrid columns="2">
+                    <p:panel header="Itens Estoque" id="painelEstoque">
+
+
+                        Cor:<p:autoComplete value="#{produtoControle.composicaoProduto.cor}"
+                                            completeMethod="#{produtoControle.listaFiltrandoCor}"
+                                            var="cor"
+                                            converter="#{produtoControle.corConverter}"
+                                            itemLabel="#{cor.nome}"
+                                            itemValue="#{cor}"
+                                            forceSelection="true"
+                                            size="15"
+                                            />
+
+                        Tamanho:<p:autoComplete value="#{produtoControle.composicaoProduto.tamanho}"
+                                                completeMethod="#{produtoControle.listaFiltrandoTamanho}"
+                                                var="tam"
+                                                converter="#{produtoControle.tamanoConverter}"
+                                                itemLabel="#{tam.nome}"
+                                                itemValue="#{tam}"
+                                                forceSelection="true"
+                                                size="9"
+                                                />
+                        Preço:<p:inputText value="#{produtoControle.composicaoProduto.preco}" 
+                                           required="true" 
+                                           requiredMessage="O preço é obrigatório!"
+                                           onkeydown="mascaraMonetaria(this)" 
+                                           converter="#{produtoControle.moneyConverter}"
+                                           size="9"
+                                           />
+
+                        Estoque:<p:inputText value="#{produtoControle.composicaoProduto.estoque}" required="true" size="9"/>
+                        <p:commandButton value="ADD" actionListener="#{produtoControle.addEstoque()}" ajax="true" update="painelEstoque"/>
+
+                        <p:dataTable 
+                            value="#{produtoControle.produto.composicaoProduto}"
+                            var="it"
+                            emptyMessage="Nenhum produto adicionado!">
+
+                            <p:column headerText="Cor">
+                                #{it.cor.nome}
+                            </p:column>
+                            <p:column headerText="Tamanho">
+                                #{it.tamanho.nome}
+                            </p:column>
+
+                            <p:column headerText="Preço" filterBy="{e.preco}">
+                                <p:outputLabel value="#{it.preco}" converter="#{produtoControle.moneyConverter}"/>
+                            </p:column>
+                            <p:column headerText="Estoque">
+                                #{it.estoque}
+                            </p:column>
+
+                            <p:column headerText="Operações">
+                                <p:commandButton icon="ui-icon-trash" ajax="false" actionListener="#{produtoControle.removerItemEstoque(it)}" update="painelEstoque campEst"/>
+                            </p:column>
+                        </p:dataTable>
+                    </p:panel>
+                </p:panelGrid>    
+                <p:commandButton value="Salvar" actionListener="#{produtoControle.salvar()}" action="listaproduto" ajax="false"/>
+                <p:commandButton value="Cancelar" action="listaproduto" immediate="true" ajax="false"/>
+
+            </h:form>
+        </ui:define>
+    </ui:composition>
+</html>
+

@@ -1,0 +1,43 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"          
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <ui:composition template="/index.xhtml">
+        <ui:define name="body">
+            <h3 align="center">Cadastro de Funcionário</h3>
+            <h:form>
+                <p:growl autoUpdate="true"/>
+                <p:panelGrid columns="4">
+
+                    Nome:<p:inputText value="#{funcionarioControle.funcionario.nome}" required="true" requiredMessage="O nome é obrigatório!"/>
+                    CPF:<p:inputMask value="#{funcionarioControle.funcionario.cpf}"  
+                                     mask="999.999.999-99"
+                                     required="true" 
+                                     requiredMessage="O CPF é obrigatório!"/>
+                    RG:<p:inputText value="#{funcionarioControle.funcionario.rg}"/>
+                    Telefone:<p:inputMask value="#{funcionarioControle.funcionario.telefone}"
+                                          mask="(99) 99999-9999"
+                                          />
+                     Cidade:<p:autoComplete value="#{funcionarioControle.funcionario.cidade}"
+                                           completeMethod="#{funcionarioControle.listaFiltrando}"
+                                           var="cid"
+                                           itemLabel="#{cid.nome}"
+                                           itemValue="#{cid}"
+                                           forceSelection="true"
+                                           converter="#{funcionarioControle.converterCidade}"/>
+                    
+                    Endereco:<p:inputText value="#{funcionarioControle.funcionario.endereco}"/>
+                    Bairro:<p:inputText value="#{funcionarioControle.funcionario.bairro}"/>                   
+                    Numero:<p:inputText value="#{funcionarioControle.funcionario.numero}"/>
+                    
+                </p:panelGrid> 
+                    <p:commandButton value="Salvar" actionListener="#{funcionarioControle.salvar()}" action="listapessoa" ajax="false"/>
+                    <p:commandButton value="Cancelar" action="listapessoa" immediate="true" ajax="false"/>
+
+            </h:form>
+        </ui:define>
+    </ui:composition>
+</html>

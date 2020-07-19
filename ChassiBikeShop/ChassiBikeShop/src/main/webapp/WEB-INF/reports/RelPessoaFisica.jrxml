@@ -1,0 +1,234 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="RelPessoaFisica" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="7e387c0d-ecc9-4de5-9073-4578d458a71c">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="filtro" class="java.lang.String"/>
+	<parameter name="filtro1" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[SELECT
+     pessoa."id" AS pessoa_id,
+     pessoa."bairro" AS pessoa_bairro,
+     pessoa."cadastro" AS pessoa_cadastro,
+     pessoa."endereco" AS pessoa_endereco,
+     pessoa."nome" AS pessoa_nome,
+     pessoa."numero" AS pessoa_numero,
+     pessoa."telefone" AS pessoa_telefone,
+     pessoa."cidade_id" AS pessoa_cidade_id,
+     pessoafisica."cpf" AS pessoafisica_cpf,
+     pessoafisica."rg" AS pessoafisica_rg,
+     pessoafisica."id" AS pessoafisica_id,
+     cidade."id" AS cidade_id,
+     cidade."nome" AS cidade_nome,
+     cidade."estado_id" AS cidade_estado_id
+FROM
+     "public"."pessoafisica" pessoafisica INNER JOIN "public"."pessoa" pessoa ON pessoafisica."id" = pessoa."id"
+     INNER JOIN public."cidade" cidade ON pessoa."cidade_id" = cidade."id"
+where
+ pessoa."nome" like $P{filtro} and pessoafisica."cpf" like $P{filtro1}]]>
+	</queryString>
+	<field name="pessoa_id" class="java.lang.Long"/>
+	<field name="pessoa_bairro" class="java.lang.String"/>
+	<field name="pessoa_cadastro" class="java.lang.String"/>
+	<field name="pessoa_endereco" class="java.lang.String"/>
+	<field name="pessoa_nome" class="java.lang.String"/>
+	<field name="pessoa_numero" class="java.lang.Integer"/>
+	<field name="pessoa_telefone" class="java.lang.String"/>
+	<field name="pessoa_cidade_id" class="java.lang.Long"/>
+	<field name="pessoafisica_cpf" class="java.lang.String"/>
+	<field name="pessoafisica_rg" class="java.lang.String"/>
+	<field name="pessoafisica_id" class="java.lang.Long"/>
+	<field name="cidade_id" class="java.lang.Long"/>
+	<field name="cidade_nome" class="java.lang.String"/>
+	<field name="cidade_estado_id" class="java.lang.Long"/>
+	<background>
+		<band/>
+	</background>
+	<title>
+		<band height="72">
+			<frame>
+				<reportElement mode="Opaque" x="-20" y="-20" width="595" height="92" backcolor="#FEFEFF" uuid="62c59bd5-65ca-4cbc-b614-11fed8a1f2ee"/>
+				<staticText>
+					<reportElement x="20" y="20" width="453" height="43" forecolor="#010101" uuid="78bd35cb-0114-43e7-acad-4d85be857c91"/>
+					<textElement>
+						<font size="34" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Relatório Pessoa Física]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="395" y="63" width="180" height="20" forecolor="#010101" uuid="61bfe896-7d26-4a30-be97-d47bf31fbccc"/>
+					<textElement textAlignment="Right">
+						<font size="14" isBold="false"/>
+					</textElement>
+					<text><![CDATA[Sistema Anaela]]></text>
+				</staticText>
+			</frame>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="13"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="21">
+			<line>
+				<reportElement x="-20" y="20" width="595" height="1" forecolor="#666666" uuid="52e18c09-c6aa-4f16-8b76-51bc16d42f33"/>
+			</line>
+			<staticText>
+				<reportElement mode="Opaque" x="0" y="0" width="126" height="20" forecolor="#010101" backcolor="#FEFEFE" uuid="d1f0f404-b239-447b-95d9-66e58fec3829"/>
+				<textElement textAlignment="Center">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Cadastro]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="126" y="0" width="181" height="20" forecolor="#010101" backcolor="#FEFEFE" uuid="149797a8-92d5-458d-8de4-e822c7ccf7fb"/>
+				<textElement textAlignment="Center">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Nome]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="307" y="0" width="126" height="20" forecolor="#010101" backcolor="#FEFEFE" uuid="1b4bd834-d5f4-4eed-90b7-7d240db7a93f"/>
+				<textElement textAlignment="Center">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[CPF]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="433" y="0" width="122" height="20" forecolor="#010101" backcolor="#FEFEFE" uuid="e9dbbc63-b326-4de1-88f7-60273e44b834"/>
+				<textElement textAlignment="Center">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[RG]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="124">
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="0" y="19" width="555" height="1" uuid="7c1f1703-97bc-4013-8dd2-0fd1b523e238"/>
+			</line>
+			<textField isStretchWithOverflow="true">
+				<reportElement mode="Opaque" x="0" y="0" width="126" height="20" forecolor="#FEFEFE" backcolor="#010101" uuid="c436b394-abaf-4b05-85b8-2792c4cc0a40"/>
+				<textElement textAlignment="Center">
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{pessoa_cadastro}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement mode="Opaque" x="126" y="0" width="181" height="20" forecolor="#FEFEFE" backcolor="#010101" uuid="7af06562-71d9-4564-a38f-1f06a0ea83aa"/>
+				<textElement textAlignment="Center">
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{pessoa_nome}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement mode="Opaque" x="307" y="0" width="126" height="20" forecolor="#FEFEFE" backcolor="#010101" uuid="4b399c77-6bc0-402e-be10-23d640b338f1"/>
+				<textElement textAlignment="Center">
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{pessoafisica_cpf}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="10" y="52" width="116" height="20" uuid="75f79d27-bcc6-448e-a69a-60ae93c80089"/>
+				<textElement textAlignment="Center">
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{pessoa_telefone}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="126" y="51" width="162" height="20" uuid="916ed975-1aca-44d0-9ac5-1137ec031d65"/>
+				<textElement textAlignment="Center">
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{pessoa_endereco}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="288" y="51" width="61" height="20" uuid="5710488d-d6d8-422b-af8e-f540c62b5630"/>
+				<textElement textAlignment="Center">
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{pessoa_numero}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="349" y="51" width="104" height="20" uuid="d6522fe8-0292-48d0-b5a3-b24dab79aa08"/>
+				<textElement textAlignment="Center">
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{pessoa_bairro}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="453" y="51" width="102" height="20" uuid="88dff48a-c33d-4ed6-b484-890fc94d7ce6"/>
+				<textElement textAlignment="Center">
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{cidade_nome}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement mode="Opaque" x="126" y="32" width="162" height="20" forecolor="#010101" backcolor="#FDFBFB" uuid="804b5841-3731-4786-a8d9-702e37617518"/>
+				<textElement textAlignment="Center">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Endereco]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="288" y="30" width="61" height="20" forecolor="#010101" backcolor="#FDFBFB" uuid="e47765a7-a775-4719-a1da-8022f4281155"/>
+				<textElement textAlignment="Center">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Núm.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="349" y="30" width="104" height="20" forecolor="#010101" backcolor="#FDFBFB" uuid="ee4ba463-0320-4346-82f3-e292e5ff3126"/>
+				<textElement textAlignment="Center">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Bairro]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="453" y="30" width="102" height="20" forecolor="#010101" backcolor="#FDFBFB" uuid="88d1ae31-e8fa-4f6a-bf67-ac2c213fc603"/>
+				<textElement textAlignment="Center">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Cidade]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="10" y="31" width="116" height="20" forecolor="#010101" backcolor="#FDFBFB" uuid="782ec43a-cadb-4c39-8172-5ec3c78b0a7e"/>
+				<textElement textAlignment="Center">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Telefone]]></text>
+			</staticText>
+			<textField isStretchWithOverflow="true">
+				<reportElement mode="Opaque" x="433" y="0" width="122" height="20" forecolor="#FEFEFE" backcolor="#010101" uuid="075a4a72-6f54-4ac4-be3a-08ff2d364bcc"/>
+				<textElement textAlignment="Center">
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{pessoafisica_rg}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band/>
+	</columnFooter>
+	<pageFooter>
+		<band height="17">
+			<textField>
+				<reportElement mode="Opaque" x="0" y="4" width="515" height="13" forecolor="#FEFEFE" backcolor="#010101" uuid="84fa8a3a-337a-459a-8e93-ae6ab439529d"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA["Página "+$V{PAGE_NUMBER}+" de"]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement mode="Opaque" x="515" y="4" width="40" height="13" forecolor="#FEFEFE" backcolor="#010101" uuid="0f2082ca-3127-457d-bbc1-7db3cf4e32d2"/>
+				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<textField pattern="EEEEE dd MMMMM yyyy">
+				<reportElement x="0" y="4" width="100" height="13" forecolor="#FEFEFE" backcolor="#010101" uuid="8f469f43-b368-47da-8f13-91935f0d6108"/>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band/>
+	</summary>
+</jasperReport>

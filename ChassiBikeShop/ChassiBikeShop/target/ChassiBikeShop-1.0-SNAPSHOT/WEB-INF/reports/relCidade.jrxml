@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="relCidade" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="cd0b7e65-3777-48b0-880f-20326f1a177e">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="param" class="java.lang.String" isForPrompting="false"/>
+	<parameter name="filtro" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[SELECT
+     cidade."id" AS Codigo,
+     cidade."nome" AS Cidade,
+     estado."nome" AS Estado,
+     estado."uf" AS Sigla
+FROM
+     "public"."estado" estado INNER JOIN "public"."cidade" cidade ON estado."id" = cidade."estado_id"
+where
+estado."nome" like $P{filtro}]]>
+	</queryString>
+	<field name="codigo" class="java.lang.Long"/>
+	<field name="cidade" class="java.lang.String"/>
+	<field name="estado" class="java.lang.String"/>
+	<field name="sigla" class="java.lang.String"/>
+	<background>
+		<band/>
+	</background>
+	<title>
+		<band height="72">
+			<frame>
+				<reportElement mode="Opaque" x="-20" y="-20" width="595" height="92" backcolor="#FDFBFB" uuid="e566a50e-330d-40fe-8dc3-67de1570e072"/>
+				<staticText>
+					<reportElement x="20" y="20" width="396" height="43" forecolor="#000000" backcolor="#000000" uuid="9acf06bc-de59-4aa6-b7ce-2299afa2bfe3"/>
+					<textElement>
+						<font fontName="Serif" size="34" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Relatório de Cidade]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="395" y="63" width="180" height="20" forecolor="#000000" backcolor="#000000" uuid="a80b8322-068a-44fc-990f-1e114c1bf9b3"/>
+					<textElement textAlignment="Right">
+						<font fontName="Serif" size="14" isBold="true" isItalic="true" isUnderline="true"/>
+					</textElement>
+					<text><![CDATA[Sistema Anaela]]></text>
+				</staticText>
+			</frame>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="13"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="21">
+			<line>
+				<reportElement x="-20" y="20" width="595" height="1" forecolor="#666666" uuid="2dc557a5-7a54-4287-8694-fbee630c61f2"/>
+			</line>
+			<staticText>
+				<reportElement mode="Opaque" x="0" y="0" width="62" height="20" forecolor="#FDFBFB" backcolor="#000000" uuid="096e8f15-0c81-4425-b215-29787fcf941d"/>
+				<textElement textAlignment="Left">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[codigo]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="62" y="0" width="279" height="20" forecolor="#FDFBFB" backcolor="#000000" uuid="db038cfc-51db-49f5-b7e9-64e9d9783461"/>
+				<textElement textAlignment="Left">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[cidade]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="341" y="0" width="138" height="20" forecolor="#FDFBFB" backcolor="#000000" uuid="50d1efb9-96b3-46c2-a613-526b542da79f"/>
+				<textElement textAlignment="Left">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[estado]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="479" y="0" width="73" height="20" forecolor="#FDFBFB" backcolor="#000000" uuid="5deaf04f-a1bf-4b01-b723-f3dbc4bb742b"/>
+				<textElement textAlignment="Left">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[sigla]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="20">
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="0" y="19" width="555" height="1" uuid="6f5d923b-a14f-4130-96d1-688353803071"/>
+			</line>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="0" y="0" width="62" height="20" uuid="fb4acf48-7ec6-4d09-80b8-0d848b640eb9"/>
+				<textElement>
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{codigo}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="62" y="0" width="279" height="20" uuid="0733ff0a-83cf-4240-bd97-b6017a595e7a"/>
+				<textElement>
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{cidade}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="479" y="0" width="73" height="20" uuid="63b5a433-9a72-4ec5-bd61-3c659023939c"/>
+				<textElement>
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{sigla}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="341" y="0" width="138" height="20" uuid="582ae00e-101c-4662-938a-a98b2799deda"/>
+				<textElement>
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{estado}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band/>
+	</columnFooter>
+	<pageFooter>
+		<band height="17">
+			<textField>
+				<reportElement mode="Opaque" x="0" y="4" width="515" height="13" forecolor="#FDFBFB" backcolor="#000000" uuid="fe38140d-17da-4bd6-b7a5-bfe79c59ace0"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA["Pagina "+$V{PAGE_NUMBER}+" de"]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement mode="Opaque" x="515" y="4" width="40" height="13" forecolor="#FDFBFB" backcolor="#000000" uuid="d9c7a2fa-2119-41a8-a525-e6232af6efb9"/>
+				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<textField pattern="EEEEE dd MMMMM yyyy">
+				<reportElement x="0" y="4" width="100" height="13" forecolor="#FDFBFB" backcolor="#000000" uuid="1915d6ea-a661-4bc3-b8a9-71add82dfd43"/>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band/>
+	</summary>
+</jasperReport>

@@ -1,0 +1,125 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"          
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <h:outputScript library="js" name="/mascaraMonetaria/Parsers.js" />
+        <h:outputScript library="js" name="/mascaraMonetaria/JavaScriptUtil.js" />
+        <h:outputScript library="js" name="/mascaraMonetaria/InputMask.js" />   
+        <script language="JavaScript">
+            function mascaraMonetaria(arg) {
+                //Set up the NumberMasks
+                var separadorDecimal = ",";
+                var separadorMilhar = ".";
+
+                var formato = new NumberParser(2, separadorDecimal, separadorMilhar, true);
+                formato.currencySymbol = "R$";
+                formato.useCurrency = true;
+                formato.allowNegative = false;
+                formato.currencyInside = true;
+
+                if (arg.className.indexOf('mascaraMonetaria') == -1) {
+                    var mascaraMonetariaFinal = new NumberMask(formato, arg, 20);
+                    mascaraMonetariaFinal.leftToRight = true;
+                    arg.setAttribute('autocomplete', 'off');
+                    arg.className += ' mascaraMonetaria';
+                }
+            }
+        </script> 
+        <title>Chassi Bike Shop</title>
+    </h:head>
+    <h:body>
+        <p:layout fullPage="true">
+            <p:layoutUnit position="north" size="90">
+
+                <table>
+                    <tr>                      
+
+                        <td align="center" width="1800">
+                            <FONT FACE="Calisto MT" SIZE="6"><b> CHASSI BIKE SHOP </b></FONT>
+                        </td>
+
+                        <td align="right" width="800">
+                            <h:form>
+                                <p:outputLabel value="Olá {loginControle.usuario.login} /  "/>
+                                <p:commandLink value="Sair" action="login.xhtml"/>
+                            </h:form>
+                        </td>
+                    </tr>
+                </table>    
+
+
+            </p:layoutUnit>
+            <p:layoutUnit position="south" size="35" style="text-align: center">
+                <p:outputLabel value="Todos os direitos reservados @2020"/>
+            </p:layoutUnit>
+            <p:layoutUnit position="west" size="230" >
+                <h:form>
+
+
+                    <p:growl id="messages" showDetail="true"/>
+                    <p:commandButton value="Inicio" ajax="false"  action="/index"/>  
+                    <p:panelMenu style="width:200px">
+
+
+                        <p:submenu label="Cadastros"  icon="pi pi-file">
+                            <p:menuitem value="Estado" ajax="false" action="/estado/listaestado"/>
+                            <p:menuitem value="Cidade" ajax="false" action="/cidade/listacidade"/>
+                            <p:menuitem value="Pessoa" ajax="false" action="/pessoa/listapessoa"/>
+                            <p:menuitem value="Grupo de Produto" ajax="false" action="/grupoproduto/listagrupoproduto"/>
+                            <p:menuitem value="Cor" ajax="false" action="/cor/listacor"/>
+                            <p:menuitem value="Tamanho" ajax="false" action="/tamanho/listatamanho"/>
+                            <p:menuitem value="Produto" ajax="false" action="/produto/listaproduto"/>
+                            <p:menuitem value="Serviço" ajax="false" action="/servico/listaservico"/>
+                            <p:menuitem value="Usuario" ajax="false" action="/usuario/usuariolista"/>
+                            <p:menuitem value="Perfil" ajax="false" action="/perfil/perfillista"/>
+                        </p:submenu>
+                        <p:submenu label="Movimentos" icon="pi pi-pencil">
+                            <p:menuitem value="Compra" ajax="false" action="/compra/listacompra"/>
+                            <p:menuitem value="Contas a Pagar" ajax="false" action="/contaspagar/contaspagarlista"/>
+                            <p:menuitem value="Contas a Receber" ajax="false" action="/contasreceber/contasreceberlista"/>
+                            <p:menuitem value="Venda e OS" ajax="false" action="/vendaos/listavendaos"/>
+                        </p:submenu>
+                        <p:separator />
+                        <p:submenu label="Relatórios" icon="pi pi-home">
+                            <p:submenu label="Relatórios Cadastrais">
+                                <p:menuitem value="Estado" ajax="false" action="/relatorios/relestado"/>
+                                <p:menuitem value="Cidade" ajax="false" action="/relatorios/relcidade"/>                            
+                                <p:menuitem value="Tamanho" ajax="false" action="/relatorios/reltamanho"/>
+                                <p:menuitem value="Cor" ajax="false" action="/relatorios/relcor"/>
+                                <p:menuitem value="Produto" ajax="false" action="/relatorios/relproduto"/>
+                                <p:menuitem value="Grupo de Produto" ajax="false" action="/relatorios/relgrupoproduto"/>
+                                <p:menuitem value="Perfil" ajax="false" action="/relatorios/relperfil"/>
+                                <p:menuitem value="Usuário" ajax="false" action="/relatorios/relusuario"/>
+                                <p:menuitem value="Pessoa Física" ajax="false" action="/relatorios/relpessoafisica"/>
+                                <p:menuitem value="Pessoa Jurídica" ajax="false" action="/relatorios/relpessoajuridica"/>                         
+                            </p:submenu>
+                            <p:submenu label="Relatórios Gerenciais">
+                                <p:menuitem value="Ordem de Serviço" ajax="false" action="/relatorios/relordemservico"/> 
+                            </p:submenu>
+                        </p:submenu>
+                    </p:panelMenu>
+
+
+                    <!--                    <p:commandButton id="rel" value="Relatórios" type="button" icon="pi pi-home" />
+                                        <p:tieredMenu overlay="true" trigger="rel" my="right top" at="left bottom" style="width:200px">
+                                            <p:submenu label="Cadastrais">
+                                                <p:menuitem value="Serviço" ajax="false" action="/servico/listaservico"/>
+                                            </p:submenu>
+                                            <p:submenu label="Gerenciais">
+                                                <p:menuitem value="Serviço" ajax="false" action="/servico/listaservico"/>
+                                            </p:submenu>
+                                        </p:tieredMenu>-->
+                </h:form>
+            </p:layoutUnit>
+            <p:layoutUnit position="center">
+                <ui:insert id="corpo" name="body">
+                    Seja bem vindo ao CHASSI BIKE SHOP!
+                </ui:insert>
+            </p:layoutUnit>
+        </p:layout>        
+    </h:body>
+</html>

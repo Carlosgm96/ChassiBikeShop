@@ -1,0 +1,40 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"          
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+    <ui:composition template="/index.xhtml">
+        <ui:define name="body">
+            <h2 align="center" style="">Cadastro de Grupo de Produto</h2>
+            <h:form id="mensage">            
+                <p:dataTable value="#{grupoProdutoControle.listaTodos()}" var="m"
+                             paginator="true" rows="5" style="background: #ffffff">
+                    <p:column headerText="Código" filterBy="#{m.id}" filterMatchMode="contains" style="background: #ffffff">
+                        #{m.id}
+                    </p:column>
+                    <p:column headerText="Nome" filterBy="#{m.nome}" filterMatchMode="contains" style="background: #ffffff">
+                        #{m.nome}
+                    </p:column>
+                    <p:column headerText="Grupo Pai" filterBy="#{m.grupoPai}" filterMatchMode="contains" style="background: #ffffff">
+                        #{m.grupoPai.nome}
+                    </p:column>
+                    <p:column headerText="Operações" style="background: #ffffff">
+                        <p:commandButton icon="ui-icon-pencil" actionListener="#{grupoProdutoControle.editar(m)}" action="editagrupoproduto" ajax="false" style="background: #ffffff"/>
+
+                        <p:commandButton icon="ui-icon-closethick" actionListener="#{grupoProdutoControle.excluir(m)}" update="mensage" immediate="true" style="background: #ffffff">
+                            <p:confirm header="Confirmação" message="Deseja excluir?" icon="ui-icon-alert" />
+                        </p:commandButton>
+                        <p:confirmDialog global="true" widgetVar="dlg3" height="" style="background-position:center ">
+                            <p:commandButton value="Sim" type="button" styleClass="ui-confirmdialog-yes" icon="ui-icon-check"  ajax="false" />
+                            <p:commandButton value="Não" type="button" styleClass="ui-confirmdialog-no" icon="ui-icon-close" ajax="true"/>
+                        </p:confirmDialog>
+                    </p:column>
+                </p:dataTable>
+                <p:commandButton value="Novo" actionListener="#{grupoProdutoControle.novo()}" action="editagrupoproduto" style="background: #ffffff"/>
+                <p:commandButton value="Voltar" action="/index" style="background: #ffffff"/>
+            </h:form>    
+        </ui:define>
+    </ui:composition>
+</html>
+

@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="RelUsuario" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="ef14d769-a05c-4ed3-943d-f6e79d0f172b">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<queryString language="SQL">
+		<![CDATA[SELECT
+     usuario."id" AS usuario_id,
+     usuario."confirmasenha" AS usuario_confirmasenha,
+     usuario."login" AS usuario_login,
+     usuario."nome" AS usuario_nome,
+     usuario."senha" AS usuario_senha,
+     usuario."perfil_id" AS usuario_perfil_id,
+     perfil."id" AS perfil_id,
+     perfil."nome" AS perfil_nome
+FROM
+     public."perfil" perfil INNER JOIN public."usuario" usuario ON perfil."id" = usuario."perfil_id"]]>
+	</queryString>
+	<field name="usuario_nome" class="java.lang.String"/>
+	<field name="usuario_login" class="java.lang.String"/>
+	<field name="perfil_nome" class="java.lang.String"/>
+	<background>
+		<band/>
+	</background>
+	<title>
+		<band height="72">
+			<frame>
+				<reportElement mode="Opaque" x="-20" y="-20" width="595" height="92" backcolor="#FAFDFE" uuid="b7605224-6299-409e-a07d-52b8ba6b623b"/>
+				<staticText>
+					<reportElement x="20" y="20" width="400" height="43" forecolor="#010101" uuid="fe657a4f-4ad1-42fe-a49d-d54c775577aa"/>
+					<textElement>
+						<font size="34" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Relatório de Usuário]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="395" y="72" width="180" height="20" forecolor="#010101" uuid="66eb2f9e-c28b-4801-8d04-b63094e16cb6"/>
+					<textElement textAlignment="Right">
+						<font size="14" isBold="true" isItalic="true" isUnderline="true"/>
+					</textElement>
+					<text><![CDATA[Sistema Anaela]]></text>
+				</staticText>
+			</frame>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="13"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="21">
+			<line>
+				<reportElement x="-20" y="20" width="595" height="1" forecolor="#666666" uuid="760c7028-ef29-43d8-8e9f-3b9649aeff50"/>
+			</line>
+			<staticText>
+				<reportElement mode="Opaque" x="0" y="0" width="185" height="20" forecolor="#FEFEFE" backcolor="#010101" uuid="c8584b93-1623-401a-80be-216a2cefd178"/>
+				<textElement textAlignment="Center">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Usuário]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="185" y="0" width="185" height="20" forecolor="#FEFEFE" backcolor="#010101" uuid="57da5d47-d799-4c1e-943d-52f92f22c4dd"/>
+				<textElement textAlignment="Center">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Login]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="370" y="0" width="185" height="20" forecolor="#FEFEFE" backcolor="#010101" uuid="2d316646-4bbd-4829-8f03-98e2565bea39"/>
+				<textElement textAlignment="Center">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Perfil]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="20">
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="0" y="19" width="555" height="1" uuid="f523c12a-20ac-4d1a-819d-8567ad926a24"/>
+			</line>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="0" y="0" width="185" height="20" uuid="8dd30059-fc3a-4cc4-88ee-38f80d910ac6"/>
+				<textElement textAlignment="Center">
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{usuario_nome}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="185" y="0" width="185" height="20" uuid="65c53cda-29b8-4139-8ab0-81957d66e7a0"/>
+				<textElement textAlignment="Center">
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{usuario_login}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="370" y="0" width="185" height="20" uuid="d4a9ca81-e5e9-43db-bd39-4d143ed6399e"/>
+				<textElement textAlignment="Center">
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{perfil_nome}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band/>
+	</columnFooter>
+	<pageFooter>
+		<band height="17">
+			<textField>
+				<reportElement mode="Opaque" x="0" y="4" width="515" height="13" forecolor="#FEFEFE" backcolor="#010101" uuid="9c2f23cc-5a68-488a-ab60-8e52cb05c6a6"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA["Página "+$V{PAGE_NUMBER}+" de"]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement mode="Opaque" x="515" y="4" width="40" height="13" forecolor="#FEFEFE" backcolor="#010101" uuid="8269e058-df21-45aa-bdca-29ab098eeb3d"/>
+				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<textField pattern="EEEEE dd MMMMM yyyy">
+				<reportElement x="0" y="4" width="100" height="13" forecolor="#FEFEFE" backcolor="#010101" uuid="0c6bd465-6b97-423d-88ec-21c9bc7b210a"/>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band/>
+	</summary>
+</jasperReport>

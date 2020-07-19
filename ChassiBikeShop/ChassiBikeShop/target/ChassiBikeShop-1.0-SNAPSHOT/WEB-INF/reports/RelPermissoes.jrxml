@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="RelPermissoes" pageWidth="555" pageHeight="802" columnWidth="555" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" uuid="bcaac41f-890f-4674-aeb5-2aa85a44d267">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="permissaoid" class="java.lang.Long"/>
+	<queryString>
+		<![CDATA[SELECT
+     permissoes."id" AS permissoes_id,
+     permissoes."nome" AS permissoes_nome,
+     permissoes."perfil_id" AS permissoes_perfil_id
+FROM
+     public."permissoes" permissoes
+where
+     permissoes."perfil_id" = $P{permissaoid}]]>
+	</queryString>
+	<field name="permissoes_id" class="java.lang.Long"/>
+	<field name="permissoes_nome" class="java.lang.String"/>
+	<field name="permissoes_perfil_id" class="java.lang.Long"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band splitType="Stretch"/>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band splitType="Stretch"/>
+	</columnHeader>
+	<detail>
+		<band height="27" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="0" width="555" height="20" uuid="7b857448-7d2c-4258-a2ca-44a2e8ac2fd5"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{permissoes_nome}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>
