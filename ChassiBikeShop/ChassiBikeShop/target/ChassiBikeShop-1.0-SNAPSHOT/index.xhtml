@@ -44,7 +44,7 @@
 
                         <td align="right" width="800">
                             <h:form>
-                                <p:outputLabel value="Olá {loginControle.usuario.login} /  "/>
+<!--                                <p:outputLabel value="Olá {loginControle.usuario.login} /  "/>-->
                                 <p:commandLink value="Sair" action="login.xhtml"/>
                             </h:form>
                         </td>
@@ -88,19 +88,13 @@
                             <p:submenu label="Relatórios Cadastrais">
                                 <p:menuitem value="Estado" ajax="false" action="/relatorios/relestado"/>
                                 <p:menuitem value="Cidade" ajax="false" action="/relatorios/relcidade"/>                            
-                                <p:menuitem value="Tamanho" ajax="false" action="/relatorios/reltamanho"/>
-                                <p:menuitem value="Cor" ajax="false" action="/relatorios/relcor"/>
-                                <p:menuitem value="Produto" ajax="false" action="/relatorios/relproduto"/>
-                                <p:menuitem value="Grupo de Produto" ajax="false" action="/relatorios/relgrupoproduto"/>
-                                <p:menuitem value="Perfil" ajax="false" action="/relatorios/relperfil"/>
-                                <p:menuitem value="Usuário" ajax="false" action="/relatorios/relusuario"/>
-                                <p:menuitem value="Pessoa Física" ajax="false" action="/relatorios/relpessoafisica"/>
-                                <p:menuitem value="Pessoa Jurídica" ajax="false" action="/relatorios/relpessoajuridica"/>                         
-                            </p:submenu>
+                     </p:submenu>
                             <p:submenu label="Relatórios Gerenciais">
-                                <p:menuitem value="Ordem de Serviço" ajax="false" action="/relatorios/relordemservico"/> 
                             </p:submenu>
                         </p:submenu>
+                         <p:submenu label="Backup" icon="pi pi-home">
+                                <p:menuitem value="Backup" ajax="false" action="/backup/backupedita"/>                          
+                     </p:submenu>
                     </p:panelMenu>
 
 

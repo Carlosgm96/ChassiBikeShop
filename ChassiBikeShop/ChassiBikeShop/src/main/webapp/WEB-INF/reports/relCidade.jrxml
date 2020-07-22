@@ -26,20 +26,20 @@ estado."nome" like $P{filtro}]]>
 	<title>
 		<band height="72">
 			<frame>
-				<reportElement mode="Opaque" x="-20" y="-20" width="595" height="92" backcolor="#FDFBFB" uuid="e566a50e-330d-40fe-8dc3-67de1570e072"/>
+				<reportElement mode="Opaque" x="-20" y="-20" width="595" height="92" backcolor="#010101" uuid="e566a50e-330d-40fe-8dc3-67de1570e072"/>
 				<staticText>
-					<reportElement x="20" y="20" width="396" height="43" forecolor="#000000" backcolor="#000000" uuid="9acf06bc-de59-4aa6-b7ce-2299afa2bfe3"/>
+					<reportElement x="103" y="20" width="396" height="43" forecolor="#30BA45" backcolor="#000000" uuid="9acf06bc-de59-4aa6-b7ce-2299afa2bfe3"/>
 					<textElement>
 						<font fontName="Serif" size="34" isBold="true"/>
 					</textElement>
 					<text><![CDATA[Relatório de Cidade]]></text>
 				</staticText>
 				<staticText>
-					<reportElement x="395" y="63" width="180" height="20" forecolor="#000000" backcolor="#000000" uuid="a80b8322-068a-44fc-990f-1e114c1bf9b3"/>
+					<reportElement x="205" y="72" width="180" height="20" forecolor="#30BA45" backcolor="#000000" uuid="a80b8322-068a-44fc-990f-1e114c1bf9b3"/>
 					<textElement textAlignment="Right">
 						<font fontName="Serif" size="14" isBold="true" isItalic="true" isUnderline="true"/>
 					</textElement>
-					<text><![CDATA[Sistema Anaela]]></text>
+					<text><![CDATA[Sistema Chassi Bike Shop]]></text>
 				</staticText>
 			</frame>
 		</band>
@@ -53,28 +53,28 @@ estado."nome" like $P{filtro}]]>
 				<reportElement x="-20" y="20" width="595" height="1" forecolor="#666666" uuid="2dc557a5-7a54-4287-8694-fbee630c61f2"/>
 			</line>
 			<staticText>
-				<reportElement mode="Opaque" x="0" y="0" width="62" height="20" forecolor="#FDFBFB" backcolor="#000000" uuid="096e8f15-0c81-4425-b215-29787fcf941d"/>
+				<reportElement mode="Opaque" x="0" y="0" width="62" height="20" forecolor="#30BA45" backcolor="#000000" uuid="096e8f15-0c81-4425-b215-29787fcf941d"/>
 				<textElement textAlignment="Left">
 					<font size="14" isBold="true"/>
 				</textElement>
 				<text><![CDATA[codigo]]></text>
 			</staticText>
 			<staticText>
-				<reportElement mode="Opaque" x="62" y="0" width="279" height="20" forecolor="#FDFBFB" backcolor="#000000" uuid="db038cfc-51db-49f5-b7e9-64e9d9783461"/>
+				<reportElement mode="Opaque" x="62" y="0" width="279" height="20" forecolor="#30BA45" backcolor="#000000" uuid="db038cfc-51db-49f5-b7e9-64e9d9783461"/>
 				<textElement textAlignment="Left">
 					<font size="14" isBold="true"/>
 				</textElement>
 				<text><![CDATA[cidade]]></text>
 			</staticText>
 			<staticText>
-				<reportElement mode="Opaque" x="341" y="0" width="138" height="20" forecolor="#FDFBFB" backcolor="#000000" uuid="50d1efb9-96b3-46c2-a613-526b542da79f"/>
+				<reportElement mode="Opaque" x="341" y="0" width="138" height="20" forecolor="#30BA45" backcolor="#000000" uuid="50d1efb9-96b3-46c2-a613-526b542da79f"/>
 				<textElement textAlignment="Left">
 					<font size="14" isBold="true"/>
 				</textElement>
 				<text><![CDATA[estado]]></text>
 			</staticText>
 			<staticText>
-				<reportElement mode="Opaque" x="479" y="0" width="73" height="20" forecolor="#FDFBFB" backcolor="#000000" uuid="5deaf04f-a1bf-4b01-b723-f3dbc4bb742b"/>
+				<reportElement mode="Opaque" x="479" y="0" width="73" height="20" forecolor="#30BA45" backcolor="#000000" uuid="5deaf04f-a1bf-4b01-b723-f3dbc4bb742b"/>
 				<textElement textAlignment="Left">
 					<font size="14" isBold="true"/>
 				</textElement>
@@ -123,16 +123,16 @@ estado."nome" like $P{filtro}]]>
 	<pageFooter>
 		<band height="17">
 			<textField>
-				<reportElement mode="Opaque" x="0" y="4" width="515" height="13" forecolor="#FDFBFB" backcolor="#000000" uuid="fe38140d-17da-4bd6-b7a5-bfe79c59ace0"/>
+				<reportElement mode="Opaque" x="0" y="4" width="515" height="13" forecolor="#30BA45" backcolor="#000000" uuid="fe38140d-17da-4bd6-b7a5-bfe79c59ace0"/>
 				<textElement textAlignment="Right"/>
 				<textFieldExpression><![CDATA["Pagina "+$V{PAGE_NUMBER}+" de"]]></textFieldExpression>
 			</textField>
 			<textField evaluationTime="Report">
-				<reportElement mode="Opaque" x="515" y="4" width="40" height="13" forecolor="#FDFBFB" backcolor="#000000" uuid="d9c7a2fa-2119-41a8-a525-e6232af6efb9"/>
+				<reportElement mode="Opaque" x="515" y="4" width="40" height="13" forecolor="#30BA45" backcolor="#000000" uuid="d9c7a2fa-2119-41a8-a525-e6232af6efb9"/>
 				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
 			</textField>
 			<textField pattern="EEEEE dd MMMMM yyyy">
-				<reportElement x="0" y="4" width="100" height="13" forecolor="#FDFBFB" backcolor="#000000" uuid="1915d6ea-a661-4bc3-b8a9-71add82dfd43"/>
+				<reportElement x="0" y="4" width="100" height="13" forecolor="#30BA45" backcolor="#000000" uuid="1915d6ea-a661-4bc3-b8a9-71add82dfd43"/>
 				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
 			</textField>
 		</band>

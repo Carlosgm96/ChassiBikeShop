@@ -43,6 +43,7 @@
 /home/carlosgm/Documentos/Faculdade/TCC/Sistema/ChassiBikeShop/ChassiBikeShop/ChassiBikeShop/src/main/java/entidade/Permissoes.java
 /home/carlosgm/Documentos/Faculdade/TCC/Sistema/ChassiBikeShop/ChassiBikeShop/ChassiBikeShop/src/main/java/entidade/Funcionario.java
 /home/carlosgm/Documentos/Faculdade/TCC/Sistema/ChassiBikeShop/ChassiBikeShop/ChassiBikeShop/src/main/java/entidade/ItensAjusteEstoque.java
+/home/carlosgm/Documentos/Faculdade/TCC/Sistema/ChassiBikeShop/ChassiBikeShop/ChassiBikeShop/src/main/java/facade/BackupFacade.java
 /home/carlosgm/Documentos/Faculdade/TCC/Sistema/ChassiBikeShop/ChassiBikeShop/ChassiBikeShop/src/main/java/entidade/Usuario.java
 /home/carlosgm/Documentos/Faculdade/TCC/Sistema/ChassiBikeShop/ChassiBikeShop/ChassiBikeShop/src/main/java/entidade/EntidadePai.java
 /home/carlosgm/Documentos/Faculdade/TCC/Sistema/ChassiBikeShop/ChassiBikeShop/ChassiBikeShop/src/main/java/entidade/Perfil.java
@@ -57,6 +58,7 @@
 /home/carlosgm/Documentos/Faculdade/TCC/Sistema/ChassiBikeShop/ChassiBikeShop/ChassiBikeShop/src/main/java/controle/CompraControle.java
 /home/carlosgm/Documentos/Faculdade/TCC/Sistema/ChassiBikeShop/ChassiBikeShop/ChassiBikeShop/src/main/java/entidade/BaixaContasPagar.java
 /home/carlosgm/Documentos/Faculdade/TCC/Sistema/ChassiBikeShop/ChassiBikeShop/ChassiBikeShop/src/main/java/facade/PessoaFisicaFacade.java
+/home/carlosgm/Documentos/Faculdade/TCC/Sistema/ChassiBikeShop/ChassiBikeShop/ChassiBikeShop/src/main/java/entidade/IncrementoBKP.java
 /home/carlosgm/Documentos/Faculdade/TCC/Sistema/ChassiBikeShop/ChassiBikeShop/ChassiBikeShop/src/main/java/entidade/Compra.java
 /home/carlosgm/Documentos/Faculdade/TCC/Sistema/ChassiBikeShop/ChassiBikeShop/ChassiBikeShop/src/main/java/facade/GrupoServicoFacade.java
 /home/carlosgm/Documentos/Faculdade/TCC/Sistema/ChassiBikeShop/ChassiBikeShop/ChassiBikeShop/src/main/java/controle/CidadeControle.java
@@ -72,3 +74,4 @@
 /home/carlosgm/Documentos/Faculdade/TCC/Sistema/ChassiBikeShop/ChassiBikeShop/ChassiBikeShop/src/main/java/entidade/BaixaContasReceber.java
 /home/carlosgm/Documentos/Faculdade/TCC/Sistema/ChassiBikeShop/ChassiBikeShop/ChassiBikeShop/src/main/java/entidade/GrupoProduto.java
 /home/carlosgm/Documentos/Faculdade/TCC/Sistema/ChassiBikeShop/ChassiBikeShop/ChassiBikeShop/src/main/java/facade/PessoaFacade.java
+/home/carlosgm/Documentos/Faculdade/TCC/Sistema/ChassiBikeShop/ChassiBikeShop/ChassiBikeShop/src/main/java/controle/BackupControle.java

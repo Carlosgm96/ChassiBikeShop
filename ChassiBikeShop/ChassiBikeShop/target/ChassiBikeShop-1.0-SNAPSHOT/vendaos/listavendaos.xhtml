@@ -16,9 +16,7 @@
                             <f:convertDateTime pattern="dd/MM/yyyy" locale="pt_BR"/>
                         </p:outputLabel>
                     </p:column>
-                    <p:column headerText="Cliente" filterBy="#{e.pessoa.nome}" filterMatchMode="contains">
-                        #{e.pessoa.nome}
-                    </p:column>
+                  
                     <p:column headerText="Forma de Pagamento" filterBy="#{e.formaPag}" filterMatchMode="contains">
                         #{e.formaPag}
                     </p:column>

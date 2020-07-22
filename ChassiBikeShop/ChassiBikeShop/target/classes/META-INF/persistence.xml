@@ -29,6 +29,7 @@
     <class>entidade.Tamanho</class>
     <class>entidade.Usuario</class>
     <class>entidade.VendaOs</class>
+    <class>entidade.IncrementoBKP</class>
     <exclude-unlisted-classes>false</exclude-unlisted-classes>
     <properties>
       <property name="javax.persistence.jdbc.url" value="jdbc:postgresql://localhost:5432/ciclismo"/>

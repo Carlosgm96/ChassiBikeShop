@@ -16,7 +16,7 @@
                     Data da Compra:<p:calendar value="#{compraControle.compra.dataCompra}"
                                                pattern="dd/MM/yyyy"
                                                locale="pt_BR"/>
-                    Pessoa Jurídica:<p:autoComplete value="#{compraControle.compra.pessoaJuridica}"
+                    Fornecedor:<p:autoComplete value="#{compraControle.compra.pessoaJuridica}"
                                                     completeMethod="#{compraControle.listaFiltrandoPessoaJuridica}"
                                                     var="co"
                                                     converter="#{compraControle.converterPessoaJuridica}"
@@ -72,7 +72,7 @@
                     </p:dataTable>
 
 
-                    <p:commandButton value="ADD" actionListener="#{compraControle.addItemComposicaoProduto()}" ajax="true" update="campototal painelcompra"/>
+                    <p:commandButton value="ADICIONAR" actionListener="#{compraControle.addItemComposicaoProduto()}" ajax="true" update="campototal painelcompra"/>
                     <p:dataTable 
                         value="#{compraControle.compra.itensCompra}"
                         var="it"

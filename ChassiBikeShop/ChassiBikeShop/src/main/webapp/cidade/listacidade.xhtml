@@ -10,9 +10,7 @@
         <h:form id="mensage">            
             <p:dataTable value="#{cidadeControle.listaTodos()}" var="cid" 
                          paginator="true" rows="5" style="background: #ffffff" emptyMessage="Nenhuma cidade cadastrada!">
-                <p:column headerText="Código" filterBy="#{cid.id}" filterMatchMode="contains" style="background: #ffffff">
-                    #{cid.id}
-                </p:column>
+               
                 <p:column headerText="Nome" filterBy="#{cid.nome}" filterMatchMode="contains" style="background: #ffffff">
                     #{cid.nome}
                 </p:column>

@@ -13,9 +13,7 @@
                              paginatorTemplate="{CurrentPageReport} {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
                              rowsPerPageTemplate="2,5,10,15"
                              >
-                    <p:column headerText="Código" filterBy="#{obj.id}" filterMatchMode="contains">
-                        <h:outputText value="#{obj.id}"/>
-                    </p:column>
+                   
                     <p:column headerText="Nome" filterBy="#{obj.nome}" filterMatchMode="contains">
                         <h:outputText value="#{obj.nome}"/>
                     </p:column>

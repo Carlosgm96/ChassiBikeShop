@@ -10,10 +10,8 @@
         <h:form id="mensage">            
             <p:dataTable value="#{estadoControle.listaTodos()}" var="e"
                          paginator="true" rows="5" style="background: #ffffff">
-                <p:column headerText="Código" filterBy="#{e.id}" filterMatchMode="contains" style="background: #ffffff">
-                    #{e.id}
-                </p:column>
-                <p:column headerText="Nome" filterBy="#{e.nome}" filterMatchMode="contains" style="background: #ffffff">
+              
+               <p:column headerText="Nome" filterBy="#{e.nome}" filterMatchMode="contains" style="background: #ffffff">
                     #{e.nome}
                 </p:column>
                 <p:column headerText="Sigla" filterBy="#{e.uf}" filterMatchMode="contains" style="background: #ffffff">

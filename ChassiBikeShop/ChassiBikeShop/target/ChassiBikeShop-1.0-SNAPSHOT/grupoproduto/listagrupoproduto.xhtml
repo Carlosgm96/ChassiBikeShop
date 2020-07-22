@@ -10,9 +10,7 @@
             <h:form id="mensage">            
                 <p:dataTable value="#{grupoProdutoControle.listaTodos()}" var="m"
                              paginator="true" rows="5" style="background: #ffffff">
-                    <p:column headerText="Código" filterBy="#{m.id}" filterMatchMode="contains" style="background: #ffffff">
-                        #{m.id}
-                    </p:column>
+                 
                     <p:column headerText="Nome" filterBy="#{m.nome}" filterMatchMode="contains" style="background: #ffffff">
                         #{m.nome}
                     </p:column>

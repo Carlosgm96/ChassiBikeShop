@@ -14,6 +14,7 @@ entidade/ContasPagar.class
 entidade/Produto.class
 controle/GrupoServicoControle.class
 entidade/Funcionario.class
+entidade/IncrementoBKP.class
 controle/PessoaControle.class
 controle/RelatorioControle.class
 facade/CompraFacade.class
@@ -54,6 +55,7 @@ entidade/ItensVendaOs.class
 util/JpaUtil.class
 controle/ServicoControle.class
 controle/ContasReceberControle.class
+facade/BackupFacade.class
 entidade/ItensServico.class
 controle/UsuarioControle.class
 controle/FuncionarioControle.class
@@ -62,6 +64,7 @@ facade/AjusteEstoqueFacade.class
 controle/VendaOsControle.class
 entidade/Pessoa.class
 facade/PessoaJuridicaFacade.class
+controle/BackupControle.class
 controle/EstadoControle.class
 entidade/PessoaJuridica.class
 entidade/Compra.class
